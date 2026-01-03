@@ -1,10 +1,9 @@
-const port = Number(process.env.PORT || 3000);
-
 const server = Bun.serve({
-    port,
+    hostname: "0.0.0.0",
+    port: Number(process.env.PORT) || 3000,
     fetch(req) {
-        return new Response("API de Bun está funcionando correctamente");
+        return new Response("API de Bun esta funcionando correctamente");
     },
 });
 
-console.log(`Servidor corriendo en http://localhost:${port}`);
+console.log(`Servidor corriendo en puerto ${server.port}`);
