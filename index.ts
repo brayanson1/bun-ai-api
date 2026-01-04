@@ -1,9 +1,8 @@
 const server = Bun.serve({
-    hostname: "0.0.0.0",
-    port: Number(process.env.PORT) || 3000,
-    fetch() {
-        return new Response("API de Bun funcionando");
+    port: process.env.POR ?? 3000,
+    async fetch(req) {
+        return new Response("API de Bun funcionando correctamente");
     },
 });
 
-console.log(`Servidor en puerto ${server.port}`);
+console.log(`Servidor en puerto ${server.url}:${server.port}`);
